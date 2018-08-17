@@ -15,6 +15,9 @@ public abstract class ActionAbstract implements Action {
 
     public void init()
     {
+
+
+
     }
 
 
