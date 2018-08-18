@@ -1,8 +1,8 @@
 package com.marin.marinkingdomsbot.data.entitites.mapdetails;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.marin.listatak.data.entitites.mapdetails.mapdetailsresponse.NameDetailsVillage;
-import com.marin.listatak.data.entitites.mapdetails.mapdetailsresponse.ResponseVillages;
+import com.marin.marinkingdomsbot.data.entitites.mapdetails.mapdetailsresponse.NameDetailsVillage;
+import com.marin.marinkingdomsbot.data.entitites.mapdetails.mapdetailsresponse.ResponseVillages;
 import lombok.*;
 
 import java.util.*;

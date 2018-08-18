@@ -1,7 +1,7 @@
 package com.marin.marinkingdomsbot.data.entitites.allmap;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.marin.listatak.data.entitites.allmap.allmaprespons.Response;
+import com.marin.marinkingdomsbot.data.entitites.allmap.allmaprespons.Response;
 import lombok.*;
 
 import java.util.HashMap;

@@ -1,9 +1,14 @@
 package com.marin.marinkingdomsbot.controlers;
 
 
+import com.marin.marinkingdomsbot.executors.Action;
+import com.marin.marinkingdomsbot.executors.GetAtak;
 import org.telegram.abilitybots.api.bot.AbilityBot;
 import org.telegram.abilitybots.api.objects.Ability;
 
+
+import java.util.Arrays;
+import java.util.stream.Stream;
 
 import static org.telegram.abilitybots.api.objects.Locality.ALL;
 import static org.telegram.abilitybots.api.objects.Privacy.PUBLIC;
@@ -55,13 +60,27 @@ public class AtaksTelegram extends AbilityBot {
     }
     public Ability getAtak() {
         System.out.print("22222222222222222222222222");
-        return Ability
+
+        Ability ability = Ability
                 .builder()
                 .name("ataks")
                 .locality(ALL)
                 .privacy(PUBLIC)
-                .action(ctx -> silent.send("Not ataks!", ctx.chatId()))
-                .build();
+                .action(ctx -> {
+                    //Integer id_user = ctx.user().getId();
+                    //Action action = new GetAtak();
+                   // ctx.
 
+                    //System.out.print("111111111111111111111 f "+ctx.firstArg());
+                   // System.out.print("222222222222222222222 s "+ctx.secondArg());
+                   // System.out.print("333333333333333333333 t "+ctx.thirdArg());
+                    System.out.print("444444444444444444444 a ");
+                    Arrays.stream(ctx.arguments()).forEach(System.out::println);
+
+                    //String result = action.exec();
+                    silent.send("Not ataks!", ctx.chatId());
+                })
+                .build();
+        return ability;
     }
 }

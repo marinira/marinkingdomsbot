@@ -1,6 +1,6 @@
 package com.marin.marinkingdomsbot.data.entitites.ataks;
 
-import com.marin.listatak.data.entitites.ataks.atakresponse.NameVillAtaks;
+import com.marin.marinkingdomsbot.data.entitites.ataks.atakresponse.NameVillAtaks;
 import lombok.*;
 
 import java.util.*;
