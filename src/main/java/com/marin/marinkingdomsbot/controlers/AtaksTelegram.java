@@ -3,11 +3,16 @@ package com.marin.marinkingdomsbot.controlers;
 
 import com.marin.marinkingdomsbot.executors.Action;
 import com.marin.marinkingdomsbot.executors.GetAtak;
+import com.marin.marinkingdomsbot.executors.RunAction;
+import com.marin.marinkingdomsbot.executors.RunActionSchedule;
+import com.sun.xml.internal.xsom.impl.scd.Iterators;
 import org.telegram.abilitybots.api.bot.AbilityBot;
 import org.telegram.abilitybots.api.objects.Ability;
 
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Stream;
 
 import static org.telegram.abilitybots.api.objects.Locality.ALL;
@@ -20,6 +25,7 @@ public class AtaksTelegram extends AbilityBot {
 
     public static String BOT_TOKEN = "597252446:AAGmazPUElG8_J-XFhRsPFq8_ZbtLzmDH_U";
     public static String BOT_USERNAME = "MarinKingdoms_bot";
+    private RunAction runAction = new RunActionSchedule();
 
     public AtaksTelegram(String token, String username) {
         super(token, username);
@@ -82,5 +88,24 @@ public class AtaksTelegram extends AbilityBot {
                 })
                 .build();
         return ability;
+    }
+    public Ability startSelectAtak(){
+        return Ability
+                .builder()
+                .name("startgetatak")
+                .locality(ALL)
+                .privacy(PUBLIC)
+                .action(ctx -> {
+                    List<String> arguments = Arrays.asList(ctx.arguments());
+                    if(arguments != null & arguments.size() >= 3)
+                    {
+                        Action action = new GetAtak();
+                        runAction.startAction(arguments.get(0),action, Integer.parseInt(arguments.get(1)),Integer.parseInt(arguments.get(2)));
+                        silent.send("Start Get ATAK", ctx.chatId());
+                    }
+                    else
+                        silent.send("format: /startgetatak kingdomsname mintime maxtime", ctx.chatId());
+                })
+                .build();
     }
 }
